@@ -1,0 +1,34 @@
+#include <iostream>
+
+using namespace std;
+
+int main() 
+{
+	ios_base::sync_with_stdio(false);
+    cin.tie(NULL);
+	int t;
+	cin>>t;		
+	while(t--)
+	{
+		int n;
+		cin>>n;
+		long long int a[n];
+		long long int prefix[n];
+		for(int i=1;i<=n;i++)
+		{
+			cin>>a[i];
+			prefix[i]=prefix[i-1]+a[i];
+		}
+		
+		int q;		
+		cin>>q;
+		while(q--)
+		{
+			int l,r;
+			cin>>l>>r;
+			cout<<prefix[r]-prefix[l-1]<<"\n";
+		}
+	}	
+	return 0;							
+}
+
